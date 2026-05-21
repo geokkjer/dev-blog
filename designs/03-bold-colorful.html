@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design 3 – Bold & Colorful</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #fefefe;
+      color: #1a0a2e;
+      line-height: 1.7;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    /* Gradient header */
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    header .container {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .logo {
+      font-weight: 700; font-size: 1.4rem;
+      color: #fff; text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      font-weight: 500; font-size: 0.95rem;
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: #fff;
+      transition: width 0.2s;
+    }
+    nav a:hover::after { width: 100%; }
+    nav a:hover { color: #fff; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      color: #fff;
+      padding: 5rem 0 6rem;
+      position: relative;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3.5rem; font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .hero h1 .underline {
+      display: inline-block;
+      border-bottom: 4px solid rgba(255,255,255,0.3);
+      padding-bottom: 0.1em;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 550px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-cta {
+      display: inline-block;
+      background: #fff; color: #764ba2;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+    .hero-cta-outline {
+      display: inline-block;
+      background: transparent; color: #fff;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: all 0.2s;
+    }
+    .hero-cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      padding: 2.5rem;
+      background: #fff;
+      border-radius: 16px;
+      margin-top: -2rem;
+      box-shadow: 0 4px 30px rgba(102,126,234,0.1);
+      position: relative;
+      z-index: 2;
+    }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-size: 2rem; font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { color: #8b8ba0; font-size: 0.9rem; font-weight: 500; }
+
+    /* Section */
+    section { padding: 3rem 0; }
+    .section-title {
+      font-size: 2rem; font-weight: 700;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.02em;
+    }
+    .section-title .accent {
+      background: linear-gradient(135deg, #667eea, #f093fb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .blog-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+      border: 1px solid #f0f0f5;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(102,126,234,0.12);
+    }
+    .blog-card .card-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .blog-card .card-icon.purple { background: #f3e8ff; }
+    .blog-card .card-icon.blue { background: #e0e7ff; }
+    .blog-card .card-icon.pink { background: #fce7f3; }
+    .blog-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .blog-card h3 a {
+      color: #1a0a2e;
+      text-decoration: none;
+    }
+    .blog-card h3 a:hover { background: linear-gradient(135deg, #667eea, #f093fb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .blog-card p {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+    .blog-card .card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .blog-card time {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    .blog-card .read-link {
+      color: #764ba2; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    }
+
+    /* Newsletter */
+    .newsletter {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      color: #fff;
+      margin: 2rem 0 3rem;
+    }
+    .newsletter h2 { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .newsletter p { opacity: 0.9; margin-bottom: 1.5rem; font-size: 1.05rem; }
+    .newsletter-form {
+      display: flex; max-width: 480px; margin: 0 auto; gap: 0.75rem;
+    }
+    .newsletter-form input {
+      flex: 1; padding: 0.9rem 1.5rem;
+      border-radius: 50px; border: none;
+      font-family: inherit; font-size: 0.95rem;
+    }
+    .newsletter-form button {
+      background: #1a0a2e; color: #fff;
+      border: none; padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 700; font-family: inherit; font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .newsletter-form button:hover { background: #2d1554; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #f0f0f5;
+      padding: 2rem 0;
+      text-align: center;
+      color: #9ca3af;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .stats-bar { flex-direction: column; gap: 1.5rem; }
+      .newsletter-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="#" class="logo">✦ devblog</a>
+      <nav>
+        <a href="#">Hjem</a>
+        <a href="#">Blogg</a>
+        <a href="#">Om</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>
+          <span class="underline">Lær, bygg,</span><br/>
+          del med ✨ stil
+        </h1>
+        <p>En fargerik blogg om frontend-utvikling — fra Vue-komponenter til Nuxt-arkitektur og alt derimellom.</p>
+        <div class="hero-actions">
+          <a href="#" class="hero-cta">Utforsk artikler</a>
+          <a href="#" class="hero-cta-outline">Om meg</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- Stats -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Artikler</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Temaer</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Utvikler 🚀</div>
+        </div>
+      </div>
+
+      <!-- Siste poster -->
+      <section>
+        <h2 class="section-title">
+          Siste <span class="accent">artikler</span>
+        </h2>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="card-icon purple">⚡</div>
+            <h3><a href="#">Nuxt 4 — Alt du trenger å vite</a></h3>
+            <p>Nye features, breaking changes og hvorfor du bør oppgradere i dag.</p>
+            <div class="card-footer">
+              <time>15. mai 2026</time>
+              <a href="#" class="read-link">Les →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="card-icon blue">🟣</div>
+            <h3><a href="#">Vue 3 Reactivity Deep Dive</a></h3>
+            <p>Forstå proxy-basert reactivity — fra ref til effect scope.</p>
+            <div class="card-footer">
+              <time>10. mai 2026</time>
+              <a href="#" class="read-link">Les →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="card-icon pink">🎨</div>
+            <h3><a href="#">Designsystemer i Nuxt</a></h3>
+            <p>Hvordan bygge et gjenbrukbart komponentbibliotek med Nuxt og Vue.</p>
+            <div class="card-footer">
+              <time>3. mai 2026</time>
+              <a href="#" class="read-link">Les →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="newsletter">
+        <h2>Hold deg oppdatert 🚀</h2>
+        <p>Få melding når nye artikler publiseres. Ingen spam, bare kode.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="din@epost.no" />
+          <button type="submit">Abonner</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>✦ Dev Blog &copy; 2026 — Fargerik kode med ❤️</p>
+    </div>
+  </footer>
+</body>
+</html>

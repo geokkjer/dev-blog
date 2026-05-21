@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design 2 – Dark Developer (Vesper)</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #101010;
+      color: #FFF;
+      line-height: 1.7;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    /* Header */
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #282828;
+      background: #101010;
+    }
+    header .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700; font-size: 1.1rem;
+      color: #99FFE4;
+      text-decoration: none;
+    }
+    .logo::before { content: '> '; color: #505050; }
+    nav { display: flex; gap: 1.5rem; align-items: center; }
+    nav a {
+      color: #A0A0A0; text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    nav a:hover { color: #FFC799; }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #99FFE4; display: inline-block;
+      margin-right: 0.4rem;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 6rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -25%;
+      width: 150%; height: 150%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,199,153,0.04), transparent 60%);
+      pointer-events: none;
+    }
+    .hero .subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #99FFE4;
+      margin-bottom: 1rem;
+    }
+    .hero .subtitle .comment { color: #505050; }
+    .hero h1 {
+      font-size: 3.2rem; font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #FFC799, #FFCFA8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.1rem; color: #A0A0A0;
+      max-width: 550px; margin-bottom: 2rem;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #FFC799; color: #000;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .hero-cta:hover { background: #FFCFA8; transform: translateY(-1px); }
+    .hero-cta .arrow { font-family: 'JetBrains Mono', monospace; }
+
+    /* Section title */
+    .section-title {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .section-title .counter {
+      color: #505050; font-size: 0.8rem;
+    }
+    .section-title a {
+      font-size: 0.85rem; font-weight: 500; color: #FFC799;
+      text-decoration: none; font-family: 'Inter', sans-serif;
+    }
+    .section-title a:hover { color: #FFCFA8; }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .blog-card {
+      background: #161616;
+      border: 1px solid #282828;
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+    }
+    .blog-card:hover {
+      border-color: #FFC799;
+      transform: translateY(-2px);
+    }
+    .blog-card .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #505050;
+      margin-bottom: 0.75rem;
+    }
+    .blog-card .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #FFC799;
+      border: 1px solid rgba(255,199,153,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-right: 0.4rem;
+    }
+    .blog-card .tag.mint {
+      color: #99FFE4;
+      border-color: rgba(153,255,228,0.2);
+    }
+    .blog-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .blog-card h3 a {
+      color: #FFF;
+      text-decoration: none;
+    }
+    .blog-card h3 a:hover { color: #FFC799; }
+    .blog-card p {
+      font-size: 0.9rem;
+      color: #A0A0A0;
+      margin-bottom: 0.75rem;
+    }
+    .blog-card .read-more {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #FFC799;
+      text-decoration: none;
+    }
+    .blog-card .read-more:hover { color: #FFCFA8; }
+
+    /* Terminal about */
+    .terminal-about {
+      background: #161616;
+      border: 1px solid #282828;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      font-size: 0.95rem;
+    }
+    .terminal-about .line {
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 0.5rem;
+    }
+    .terminal-about .prompt { color: #99FFE4; }
+    .terminal-about .cmd { color: #FFF; }
+    .terminal-about .output { color: #FF8080; margin-left: 1.2rem; }
+    .terminal-about .string { color: #99FFE4; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #282828;
+      padding: 2rem 0;
+      text-align: center;
+      color: #505050;
+      font-size: 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .terminal-about { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="#" class="logo">devblog</a>
+      <nav>
+        <a href="#"><span class="status-dot"></span>Hjem</a>
+        <a href="#">Blogg</a>
+        <a href="#">Om</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="subtitle">
+          <span class="comment">// developer.log</span>
+        </div>
+        <h1>Building things<br/>with <span class="highlight">Nuxt & Vue</span></h1>
+        <p>En utviklers reise gjennom frontend-arkitektur, komponentdesign og moderne web-teknologier.</p>
+        <a href="#" class="hero-cta">
+          <span>Les bloggen</span>
+          <span class="arrow">→</span>
+        </a>
+      </section>
+
+      <!-- Siste poster -->
+      <section>
+        <div class="section-title">
+          <span>📦 Siste artikler</span>
+          <span class="counter">03 / 12</span>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="meta">
+              <span class="tag">nuxt</span>
+              <span class="tag mint">v4</span>
+              2026.05.15
+            </div>
+            <h3><a href="#">Nuxt 4 — Hva er nytt?</a></h3>
+            <p>Nitro 2, auto-imports, forbedret SSR og alt du trenger å vite for å oppgradere.</p>
+            <a href="#" class="read-more">→ les mer</a>
+          </article>
+          <article class="blog-card">
+            <div class="meta">
+              <span class="tag">vue</span>
+              2026.05.10
+            </div>
+            <h3><a href="#">Composables vs Mixins</a></h3>
+            <p>Hvorfor composables har erstattet mixins i Vue 3 og hvordan du skriver gjenbrukbar logikk.</p>
+            <a href="#" class="read-more">→ les mer</a>
+          </article>
+          <article class="blog-card">
+            <div class="meta">
+              <span class="tag">typescript</span>
+              <span class="tag mint">tips</span>
+              2026.05.03
+            </div>
+            <h3><a href="#">TypeScript Utility Types</a></h3>
+            <p>10 utility types du bør kunne for mer produktiv TypeScript-utvikling.</p>
+            <a href="#" class="read-more">→ les mer</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Terminal About -->
+      <section class="terminal-about">
+        <div class="line">
+          <span class="prompt">$ </span>
+          <span class="cmd">whoami</span>
+        </div>
+        <div class="line">
+          <span class="output">></span>
+          <span class="string">"Frontend-utvikler / Nuxt-entusiast"</span>
+        </div>
+        <div class="line" style="margin-top:1rem;">
+          <span class="prompt">$ </span>
+          <span class="cmd">skills --list</span>
+        </div>
+        <div class="line">
+          <span class="output">> [Vue, Nuxt, TypeScript, Tailwind, Node.js, Postgres]</span>
+        </div>
+        <div class="line" style="margin-top:1rem;">
+          <span class="prompt">$ </span>
+          <span class="cmd">contact</span>
+        </div>
+        <div class="line">
+          <span class="output">> github.com/student · @student · linkedin.com/in/student</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>// dev-blog © 2026 — built with Nuxt 4 + Vesper</p>
+    </div>
+  </footer>
+</body>
+</html>

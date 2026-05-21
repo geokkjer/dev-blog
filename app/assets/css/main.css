@@ -1,0 +1,127 @@
+/* ============================================
+   Vesper × Brutalist — Dark Developer
+   Brutalist hard shadows + rounded corners
+   ============================================ */
+
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* Vesper × Brutalist color tokens */
+:root {
+  --color-bg-dark: #101010;
+  --color-surface: #161616;
+  --color-elevated: #1C1C1C;
+  --color-border: #282828;
+  --color-text: #FFF;
+  --color-muted: #A0A0A0;
+  --color-dimmed: #505050;
+  --color-gold: #FFC799;
+  --color-gold-light: #FFCFA8;
+  --color-mint: #99FFE4;
+  --color-red: #FF8080;
+  --color-shadow: #FFC799;
+}
+
+/* Brutalist shadow utilities */
+.shadow-brutal {
+  box-shadow: 4px 4px 0px 0px var(--color-shadow);
+}
+.shadow-brutal-lg {
+  box-shadow: 6px 6px 0px 0px var(--color-shadow);
+}
+.shadow-brutal-sm {
+  box-shadow: 3px 3px 0px 0px var(--color-shadow);
+}
+.hover\:shadow-brutal:hover {
+  box-shadow: 4px 4px 0px 0px var(--color-shadow);
+}
+.hover\:shadow-brutal-lg:hover {
+  box-shadow: 6px 6px 0px 0px var(--color-shadow);
+}
+.active\:shadow-none:active,
+.shadow-none {
+  box-shadow: none !important;
+}
+
+/* Override Nuxt UI CSS variables */
+.dark,
+:root {
+  --ui-bg: #101010;
+  --ui-bg-muted: #161616;
+  --ui-bg-elevated: #1C1C1C;
+  --ui-bg-accented: #282828;
+  --ui-bg-inverted: #FFC799;
+
+  --ui-text-dimmed: #505050;
+  --ui-text-muted: #A0A0A0;
+  --ui-text-toned: #CCC;
+  --ui-text: #FFF;
+  --ui-text-highlighted: #FFF;
+  --ui-text-inverted: #000;
+
+  --ui-border: #282828;
+  --ui-border-muted: #282828;
+  --ui-border-accented: #505050;
+  --ui-border-inverted: #FFC799;
+
+  --ui-radius: 0.75rem;
+
+  --ui-color-primary-50: #FFF3E5;
+  --ui-color-primary-100: #FFE8CC;
+  --ui-color-primary-200: #FFD6A3;
+  --ui-color-primary-300: #FFC799;
+  --ui-color-primary-400: #FFBF80;
+  --ui-color-primary-500: #FFB366;
+  --ui-color-primary-600: #FFA64D;
+  --ui-color-primary-700: #FF9933;
+  --ui-color-primary-800: #FF8C1A;
+  --ui-color-primary-900: #FF8000;
+
+  --ui-color-info-50: #E5FFF8;
+  --ui-color-info-100: #CCFFF0;
+  --ui-color-info-200: #99FFE4;
+  --ui-color-info-300: #66FFD5;
+  --ui-color-info-400: #33FFC9;
+  --ui-color-info-500: #00FFBA;
+  --ui-color-info-600: #00CC95;
+  --ui-color-info-700: #009970;
+  --ui-color-info-800: #00664B;
+  --ui-color-info-900: #003325;
+
+  --ui-color-neutral-50: #2A2A2A;
+  --ui-color-neutral-100: #282828;
+  --ui-color-neutral-200: #282828;
+  --ui-color-neutral-300: #505050;
+  --ui-color-neutral-400: #505050;
+  --ui-color-neutral-500: #A0A0A0;
+  --ui-color-neutral-600: #A0A0A0;
+  --ui-color-neutral-700: #CCC;
+  --ui-color-neutral-800: #FFF;
+  --ui-color-neutral-900: #FFF;
+}
+
+/* Base body */
+body {
+  background-color: #101010;
+  color: #FFF;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.font-mono, code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+::selection {
+  background-color: rgba(255, 199, 153, 0.3);
+  color: #FFF;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #101010; }
+::-webkit-scrollbar-thumb { background: #282828; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #505050; }

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design 1 – Minimal & Clean</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafafa;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    /* Header */
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      background: #fff;
+    }
+    header .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-weight: 700; font-size: 1.3rem; color: #1a1a2e; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a { color: #6b7280; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: #1a1a2e; }
+
+    /* Hero */
+    .hero {
+      padding: 6rem 0 4rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem; font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem; color: #6b7280;
+      max-width: 600px; margin: 0 auto 2rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: #1a1a2e; color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .hero-cta:hover { background: #333; }
+
+    /* Blog Grid */
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .section-title a {
+      font-size: 0.95rem; font-weight: 500; color: #6366f1;
+      text-decoration: none;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .blog-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .blog-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+    .blog-card .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #6366f1;
+      background: #eef2ff;
+      padding: 0.25rem 0.7rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+    .blog-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .blog-card h3 a {
+      color: #1a1a2e;
+      text-decoration: none;
+    }
+    .blog-card h3 a:hover { color: #6366f1; }
+    .blog-card p {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+    }
+    .blog-card time {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    /* About section */
+    .about-section {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      padding: 3rem 0;
+      border-top: 1px solid #e5e7eb;
+      margin-bottom: 3rem;
+    }
+    .about-avatar {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      flex-shrink: 0;
+    }
+    .about-text h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .about-text p { color: #6b7280; font-size: 0.95rem; }
+    .about-text .social-links { margin-top: 0.75rem; display: flex; gap: 1rem; }
+    .about-text .social-links a { color: #6b7280; text-decoration: none; font-size: 0.9rem; }
+    .about-text .social-links a:hover { color: #6366f1; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 2rem 0;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .about-section { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="#" class="logo">devblog</a>
+      <nav>
+        <a href="#">Hjem</a>
+        <a href="#">Blogg</a>
+        <a href="#">Om</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Hero -->
+      <section class="hero">
+        <h1>Frontend-utvikling<br/>med Nuxt & Vue</h1>
+        <p>Personlige notater, tutorials og refleksjoner rundt moderne webutvikling — fra Vue-grunner til Nuxt-arkitektur.</p>
+        <a href="#" class="hero-cta">Utforsk bloggen →</a>
+      </section>
+
+      <!-- Siste poster -->
+      <section>
+        <div class="section-title">
+          <h2>Siste artikler</h2>
+          <a href="#">Se alle →</a>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <span class="tag">Nuxt</span>
+            <h3><a href="#">Kom i gang med Nuxt 4</a></h3>
+            <p>En introduksjon til Nuxt 4's nye features som Nitro, cleanup og forbedret typestøtte.</p>
+            <time>15. mai 2026</time>
+          </article>
+          <article class="blog-card">
+            <span class="tag">Vue</span>
+            <h3><a href="#">Reactivity i Vue 3</a></h3>
+            <p>Forstå forskjellen mellom ref, reactive, computed og watchers.</p>
+            <time>10. mai 2026</time>
+          </article>
+          <article class="blog-card">
+            <span class="tag">CSS</span>
+            <h3><a href="#">CSS Grid — Praktisk guide</a></h3>
+            <p>Hvordan bruke CSS Grid til å bygge responsive layouts uten media queries.</p>
+            <time>3. mai 2026</time>
+          </article>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="about-section">
+        <div class="about-avatar"></div>
+        <div class="about-text">
+          <h2>Hei, jeg er Student!</h2>
+          <p>Frontend-utvikler som deler det jeg lærer underveis. Fokus på Vue, Nuxt, TypeScript og moderne CSS. Alltid nysgjerrig, alltid i læring.</p>
+          <div class="social-links">
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Dev Blog &copy; 2026 — Bygget med Nuxt + ❤️</p>
+    </div>
+  </footer>
+</body>
+</html>

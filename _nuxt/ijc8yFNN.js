@@ -1,0 +1,1 @@
+import{a as o,M as s,i as r,U as n}from"./C3k5-Vrk.js";const t={};function a(e,c){return s(),r("code",null,[n(e.$slots,"default")])}const _=Object.assign(o(t,[["render",a]]),{__name:"ProseCode"});export{_ as default};

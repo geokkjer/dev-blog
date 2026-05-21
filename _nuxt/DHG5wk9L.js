@@ -1,0 +1,1 @@
+import{a as r,M as s,i as t,U as n}from"./C3k5-Vrk.js";const o={};function a(e,c){return s(),t("tr",null,[n(e.$slots,"default")])}const _=Object.assign(r(o,[["render",a]]),{__name:"ProseTr"});export{_ as default};

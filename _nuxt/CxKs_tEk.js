@@ -1,1 +1,0 @@
-import{a as o,M as t,i as s,U as c}from"./C3k5-Vrk.js";const r={};function n(e,a){return t(),s("blockquote",null,[c(e.$slots,"default")])}const _=Object.assign(o(r,[["render",n]]),{__name:"ProseBlockquote"});export{_ as default};

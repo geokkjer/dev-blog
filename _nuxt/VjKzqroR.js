@@ -1,1 +1,0 @@
-import{n as t,a7 as a,i as n,$ as o,a4 as r,M as s}from"./C3k5-Vrk.js";const l=t({__name:"[id]",setup(u){const e=a().params.id;return(i,p)=>(s(),n("h1",null," bruker: "+o(r(e)),1))}});export{l as default};

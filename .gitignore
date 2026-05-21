@@ -18,6 +18,9 @@ logs
 .fleet
 .idea
 
+# gh-pages worktree
+.gh-pages
+
 # Local env files
 .env
 .env.*

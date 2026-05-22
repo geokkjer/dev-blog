@@ -30,5 +30,10 @@ export default defineNuxtConfig({
   },
   app: {
     baseURL: "/dev-blog/",
+    head: {
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "/dev-blog/favicon.svg" },
+      ],
+    },
   },
 });

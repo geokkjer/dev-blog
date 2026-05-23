@@ -1,0 +1,1 @@
+import{_ as e}from"./DlAUqK2U.js";import{m as n,a4 as _}from"./g70WeP4X.js";const r={};function c(o,t){return _(),n("h1",null,"404 - Siden finnes ikke")}const f=e(r,[["render",c]]);export{f as default};

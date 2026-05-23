@@ -1,0 +1,1 @@
+import{am as a,f as c,x as m,i as u}from"./g70WeP4X.js";import{u as p}from"./BnMU0QTk.js";function i(o){const e=m(),s=e?.type.emits,t={};return s?.length||console.warn(`No emitted event found. Please check component: ${e?.type.__name}`),s?.forEach(r=>{t[a(c(r))]=(...n)=>o(r,...n)}),t}function l(o,e){const s=p(o),t=e?i(e):{};return u(()=>({...s.value,...t}))}export{l as u};

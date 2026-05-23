@@ -1,3 +1,20 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Om meg',
+  description: 'Frontend-utvikler som deler det jeg lærer underveis. Fokus på Vue, Nuxt, TypeScript og moderne CSS.',
+})
+
+defineOgImage('NuxtSeo', {
+  title: 'Om meg',
+  description: 'Frontend-utvikler basert i Norge. Vue, Nuxt, TypeScript.',
+  siteName: 'devblog',
+})
+
+useSchemaOrg([
+  defineWebPage(),
+])
+</script>
+
 <template>
   <div class="max-w-3xl">
     <p class="font-mono text-sm mb-6" style="color: #99FFE4;">

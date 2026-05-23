@@ -1,4 +1,25 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Prosjekter',
+  description: 'Prosjekter jeg jobber med — Vue, Nuxt, TypeScript og moderne web-teknologier.',
+})
+
+defineOgImage('NuxtSeo', {
+  title: 'Prosjekter',
+  description: 'Aktive og arkiverte prosjekter innen frontend-utvikling.',
+  siteName: 'devblog',
+})
+
+useSchemaOrg([
+  defineWebPage(),
+  defineBreadcrumb({
+    itemListElement: [
+      { name: 'Hjem', item: '/' },
+      { name: 'Prosjekter', item: '/projects' },
+    ],
+  }),
+])
+
 const { data: projects } = await useAsyncData('projects-list', () =>
   queryCollection('projects').all()
 )

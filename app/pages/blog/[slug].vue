@@ -5,15 +5,40 @@ const slug = route.params.slug as string
 const { data: post } = await useAsyncData(`blog-${slug}`, () =>
   queryCollection('blog').path(`/blog/${slug}`).first()
 )
-useHead({
+
+useSeoMeta({
   title: post.value ? post.value.title : 'Artikkel ikke funnet',
-  meta: [
-    {
-      name: 'description',
-      content: post.value ? post.value.description : 'Fant ikke artikkelen'
-    }
-  ]
+  description: post.value ? post.value.description : 'Fant ikke artikkelen',
 })
+
+if (post.value) {
+  // OG image for social sharing
+  defineOgImage('NuxtSeo', {
+    title: post.value.title,
+    description: post.value.description,
+    siteName: 'devblog',
+  })
+
+  // Schema.org Article structured data
+  useSchemaOrg([
+    defineArticle({
+      headline: post.value.title,
+      description: post.value.description,
+      datePublished: post.value.date,
+      author: {
+        name: post.value.author || 'Student',
+      },
+      tags: post.value.tags || [],
+    }),
+    defineBreadcrumb({
+      itemListElement: [
+        { name: 'Hjem', item: '/' },
+        { name: 'Blogg', item: '/blog' },
+        { name: post.value.title, item: post.value.path },
+      ],
+    }),
+  ])
+}
 </script>
 
 <template>

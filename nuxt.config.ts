@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/content", "@nuxt/ui"],
+  modules: ["@nuxtjs/seo", "@nuxt/content", "@nuxt/ui"],
   css: ["~/assets/css/main.css"],
   ui: {
     theme: {
@@ -22,6 +22,42 @@ export default defineNuxtConfig({
       { name: 'Libre Baskerville', provider: 'google', weights: [400, 700] },
     ],
   },
+  site: {
+    url: "https://geir.dev",
+    name: "devblog",
+    description: "En utviklers reise gjennom frontend-arkitektur, komponentdesign og moderne web-teknologier.",
+    defaultLocale: "nb-NO",
+    trailingSlash: false,
+    indexable: process.env.NUXT_SITE_INDEXABLE === "true",
+  },
+
+  robots: {
+    blockAiBots: true,
+    blockNonSeoBots: true,
+    robotsTxt: false,
+  },
+
+  sitemap: {
+    zeroRuntime: true,
+  },
+
+  ogImage: {
+    defaults: {
+      component: "NuxtSeo",
+      width: 1200,
+      height: 600,
+    },
+    zeroRuntime: true,
+  },
+
+  schemaOrg: {
+    identity: {
+      type: "Person",
+      name: "Student",
+      url: "https://geir.dev/dev-blog",
+    },
+  },
+
   routeRules: {
     "/": { prerender: true },
     "/blog/**": { prerender: true },

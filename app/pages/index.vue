@@ -1,4 +1,24 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'En utviklers reise',
+  description: 'En utviklers reise gjennom frontend-arkitektur, komponentdesign og moderne web-teknologier. Blogg om Vue, Nuxt, TypeScript og mer.',
+})
+
+defineOgImage('NuxtSeo', {
+  title: 'devblog',
+  description: 'En utviklers reise gjennom frontend-arkitektur, komponentdesign og moderne web-teknologier.',
+  siteName: 'devblog',
+})
+
+useSchemaOrg([
+  defineWebPage(),
+  defineBreadcrumb({
+    itemListElement: [
+      { name: 'Hjem', item: '/' },
+    ],
+  }),
+])
+
 const { data: posts } = await useAsyncData('home-posts', () =>
   queryCollection('blog').limit(3).all()
 )

@@ -1,3 +1,20 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Kontakt',
+  description: 'Kontakt meg for spørsmål om frontend-utvikling, Vue, Nuxt eller samarbeid.',
+})
+
+defineOgImage('NuxtSeo', {
+  title: 'Kontakt',
+  description: 'Frontend-utvikler tilgjengelig for spørsmål og samarbeid.',
+  siteName: 'devblog',
+})
+
+useSchemaOrg([
+  defineWebPage(),
+])
+</script>
+
 <template>
   <div class="max-w-2xl">
     <p class="font-mono text-sm mb-4" style="color: #99FFE4;">
